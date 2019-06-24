@@ -46,7 +46,7 @@ def serialize_example(feature, target):
     example_proto = tf.train.Example(features=tf.train.Features(feature=feature))
     return example_proto.SerializeToString()
 
-def write_tfrecord_file(filename, features, targets):
+def write_tf_record_file(filename, features, targets):
     # Write the `tf.Example` observations to the file.
     with tf.python_io.TFRecordWriter(filename) as writer:
         for feature, target in tqdm(zip(features, targets)):
